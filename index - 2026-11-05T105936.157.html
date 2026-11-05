@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="theme-color" content="#1f8a70">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Rumah Kita – Jadwal Rumah Tangga</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap">
+<style>
+:root{--bg:#fcfcfd;--card:#fff;--text:#1f2a44;--muted:#7a8499;--line:#eceef4;--p:#1f8a70;--p2:#43b089;--deep:#1f2a44;--a:#3b82c4;--b:#d9627f;--ok:#2f9e77;--bad:#e5566d;--soft:#f3f4f9;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px;line-height:1.5;padding-bottom:84px}
+.wrap{max-width:880px;margin:0 auto;padding:16px}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><g fill='rgba(120,190,150,.28)'><path d='M300 0C300 90 240 150 150 150C150 60 210 0 300 0Z'/><path d='M300 70C300 150 250 200 170 205C170 125 220 70 300 70Z'/><path d='M230 0C235 50 205 85 160 90C158 40 185 5 230 0Z'/></g></svg>") right top/300px 300px no-repeat,url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 300' preserveAspectRatio='none'><path d='M0 150C200 90 380 110 560 150S960 200 1200 120V300H0Z' fill='rgba(167,215,186,.45)'/><path d='M0 200C220 150 420 180 640 210S1000 220 1200 170V300H0Z' fill='rgba(130,194,160,.4)'/><path d='M0 250C260 215 480 245 700 255S1040 250 1200 225V300H0Z' fill='rgba(94,170,134,.35)'/></svg>") left bottom/100% 300px no-repeat,linear-gradient(180deg,#e4f2e9 0%,#f2f9f5 45%,#fbfdfb 100%)}
+svg{flex:none}
+#auth{display:none}.authing #auth{display:block}.authing .wrap,.authing nav{display:none}
+.aw{max-width:420px;margin:0 auto;padding:40px 18px}
+.alogo{width:62px;height:62px;border-radius:21px;background:linear-gradient(135deg,var(--p),var(--p2));display:grid;place-items:center;margin:0 auto 14px;box-shadow:0 12px 30px rgba(31,138,112,.3)}
+.aw h1{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:34px;text-align:center;margin:0}
+.asub{text-align:center;color:var(--muted);margin:6px 0 22px}
+.amsg{margin:10px 0 0;font-size:13.5px;color:var(--bad);min-height:1em}.amsg.ok{color:var(--ok)}
+.lnk{display:block;margin:14px auto 0;border:0;background:none;color:var(--muted);font:inherit;text-decoration:underline;cursor:pointer}
+.aw ol{padding-left:18px;margin:0 0 12px;color:var(--muted);font-size:13.5px}.aw ol li{margin-bottom:4px}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:20px;letter-spacing:-.3px;display:flex;align-items:center;gap:8px}
+.brand i{font-style:normal;background:linear-gradient(135deg,var(--p),var(--p2));width:34px;height:34px;border-radius:11px;display:grid;place-items:center;font-size:18px}
+.who{display:flex;background:var(--soft);border-radius:999px;padding:3px}
+.who button{border:0;background:none;color:var(--muted);font:inherit;font-weight:700;padding:7px 14px;border-radius:999px;cursor:pointer}
+.who button.on{background:var(--p);color:#fff}
+.icon{display:grid;place-items:center;border:0;background:var(--soft);color:var(--text);width:38px;height:38px;border-radius:12px;font-size:17px;cursor:pointer}
+h2{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:27px;margin:6px 0 14px;letter-spacing:-.3px}
+h3{font-size:15px;margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;margin-bottom:14px;box-shadow:0 1px 2px rgba(31,42,68,.04),0 10px 28px rgba(31,42,68,.05)}
+.t-lav{background:#f3f1ff;border-color:#e4e0ff}.t-mint{background:#eaf7f1;border-color:#d6eee2}.t-peach{background:#fff2e8;border-color:#fbe1cd}.t-sky{background:#eaf4fd;border-color:#d4e8f8}.t-rose{background:#fdeff3;border-color:#f8dbe3}
+.hero{background:linear-gradient(135deg,#d6efe2 0%,#e2f0fa 55%,#fdf3df 100%);color:var(--deep);border:0;border-radius:28px;padding:24px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-50px;top:-60px;width:210px;height:210px;border-radius:50%;background:rgba(255,255,255,.55)}
+.hero small{color:var(--muted)}
+.hero .big{font-family:Fraunces,Georgia,serif;font-size:44px;font-weight:600;letter-spacing:-1px;line-height:1.1;margin:4px 0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px}
+.stat b{display:block;font-size:22px;letter-spacing:-.5px;color:var(--p)}
+.stat span{color:var(--muted);font-size:12.5px}
+.grid .stat:nth-child(1){background:#eef0ff;border-color:#e0e4ff}.grid .stat:nth-child(2){background:#eaf7f1;border-color:#d6eee2}.grid .stat:nth-child(3){background:#fff2e8;border-color:#fbe1cd}
+.row{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row .main{flex:1;min-width:0}
+.row .main b{display:block;overflow-wrap:anywhere}
+.row .main span{color:var(--muted);font-size:12.5px}
+.row.done b{text-decoration:line-through;color:var(--muted)}
+.chk{display:grid;place-items:center;padding:0;width:26px;height:26px;border-radius:9px;border:2px solid var(--p);background:none;color:#fff;cursor:pointer;font-size:14px;flex:none}
+.done .chk{background:var(--ok);border-color:var(--ok)}
+.tag{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;color:#fff;white-space:nowrap}
+.tag.Suami{background:var(--a)}.tag.Istri{background:var(--b)}
+.x{display:grid;place-items:center;padding:4px;border:0;background:none;color:var(--muted);cursor:pointer}
+form{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:6px}
+input,select{font:inherit;color:var(--text);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;min-width:0;width:100%}
+input:focus,select:focus,button:focus-visible{outline:2px solid var(--p2);outline-offset:1px}
+.btn{font:inherit;font-weight:700;border:0;border-radius:12px;padding:11px 16px;color:#fff;background:linear-gradient(135deg,var(--p),var(--p2));cursor:pointer}
+.full{grid-column:1/-1}
+.chips{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.chips button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--card);color:var(--muted);border-radius:999px;padding:6px 14px;cursor:pointer}
+.chips button.on{background:var(--deep);color:#fff;border-color:var(--deep)}
+.pr{display:flex;justify-content:space-between;align-items:center;padding:13px 14px;border-radius:14px;margin-bottom:6px;background:var(--card);border:1px solid var(--line)}
+.pr.next{background:var(--deep);color:#fff;border:0;box-shadow:0 10px 24px rgba(31,42,68,.18)}
+.pr b{font-size:18px;font-variant-numeric:tabular-nums}
+.bar{height:12px;border-radius:99px;background:var(--bad);overflow:hidden;margin:8px 0}
+.bar i{display:block;height:100%;background:var(--ok)}
+.in{color:var(--ok);font-weight:700}.out{color:var(--bad);font-weight:700}
+.empty{color:var(--muted);text-align:center;padding:18px 8px}
+nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);display:flex;justify-content:center;gap:2px;padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px));z-index:5}
+nav button{flex:1;max-width:120px;border:0;background:none;color:var(--muted);font:inherit;font-size:11.5px;font-weight:700;padding:6px 2px;border-radius:12px;cursor:pointer}
+nav button span{display:grid;place-items:center;margin-bottom:2px}
+nav button.on{color:var(--p);background:var(--soft)}
+#toast{position:fixed;left:50%;top:calc(12px + env(safe-area-inset-top,0px));transform:translateX(-50%);z-index:9;display:flex;flex-direction:column;gap:8px;width:min(92vw,420px)}
+#toast div{background:var(--deep);color:#fff;border-radius:14px;padding:12px 14px;box-shadow:0 10px 30px rgba(11,42,91,.35);border-left:5px solid var(--p2)}
+@media(min-width:800px){body{padding-bottom:24px;padding-top:70px}nav{top:0;bottom:auto;border-top:0;border-bottom:1px solid var(--line);padding:8px}nav button{display:flex;gap:8px;align-items:center;justify-content:center;font-size:14px;max-width:150px}nav button span{display:inline-grid;margin:0}}
+@media(max-width:480px){.hero .big{font-size:38px}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+</head>
+<body>
+<div id="toast" aria-live="polite"></div>
+<nav id="nav"></nav>
+<div id="auth"></div>
+<div class="wrap">
+  <header>
+    <div class="brand"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/><path d="M12 17.5c0-3 2-4.5 4-4.5 0 3-1.5 4.5-4 4.5Z"/></svg></i>Rumah Kita</div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <span id="sync" class="tag" style="display:none"></span>
+      <div class="who" id="who" role="group" aria-label="Masuk sebagai"></div>
+      <button class="icon" id="out" data-act="logout" title="Keluar" aria-label="Keluar" style="display:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3"/><path d="M16 8l4 4-4 4M20 12H9"/></svg></button>
+      <button class="icon" id="bell" title="Aktifkan notifikasi" aria-label="Aktifkan notifikasi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6.5 2 6.5H4S6 14 6 9Z"/><path d="M10 19a2 2 0 0 0 4 0"/></svg></button>
+    </div>
+  </header>
+  <main id="app"></main>
+</div>
+<script>
+/* =====================================================================
+   PENGATURAN – satu-satunya bagian yang perlu kamu ubah
+   SB  : Project URL dan anon key dari Supabase (Project Settings > API).
+         Anon key memang aman di browser; data dilindungi aturan RLS di SQL.
+         Kosongkan jika hanya ingin mencoba mode lokal.
+   LOK : kota untuk jadwal sholat. tz = WIB 7, WITA 8, WIT 9.
+   SQL : sama dengan file supabase.sql. Di aplikasi klik "Salin SQL database",
+         tempel di Supabase > SQL Editor, lalu Run (cukup sekali).
+   ===================================================================== */
+const SB={url:'',key:''};
+const LOK={nama:'Semarang',lat:-6.9932,lng:110.4203,tz:7};
+const SQL=`create table if not exists public.households(
+ id uuid primary key default gen_random_uuid(),
+ code text unique not null default substr(md5(random()::text),1,8),
+ data jsonb not null default '{}'::jsonb,
+ updated_at timestamptz not null default now());
+create table if not exists public.members(
+ user_id uuid primary key references auth.users(id) on delete cascade,
+ household_id uuid not null references public.households(id) on delete cascade,
+ role text not null check (role in ('Suami','Istri')),
+ name text);
+alter table public.households enable row level security;
+alter table public.members enable row level security;
+create or replace function public.my_household() returns uuid language sql security definer stable set search_path=public as $$ select household_id from public.members where user_id=auth.uid() $$;
+create policy "anggota melihat anggota" on public.members for select to authenticated using (household_id=public.my_household());
+create policy "anggota melihat keluarga" on public.households for select to authenticated using (id=public.my_household());
+create policy "anggota mengubah keluarga" on public.households for update to authenticated using (id=public.my_household()) with check (id=public.my_household());
+create or replace function public.buat_keluarga(p_role text,p_name text) returns uuid language plpgsql security definer set search_path=public as $$
+declare h uuid;
+begin
+ if auth.uid() is null then raise exception 'Belum masuk'; end if;
+ if p_role not in ('Suami','Istri') then raise exception 'Peran tidak valid'; end if;
+ insert into households default values returning id into h;
+ insert into members(user_id,household_id,role,name) values(auth.uid(),h,p_role,p_name);
+ return h;
+end $$;
+create or replace function public.gabung_keluarga(p_code text,p_role text,p_name text) returns uuid language plpgsql security definer set search_path=public as $$
+declare h uuid;
+begin
+ if auth.uid() is null then raise exception 'Belum masuk'; end if;
+ if p_role not in ('Suami','Istri') then raise exception 'Peran tidak valid'; end if;
+ select id into h from households where code=lower(trim(p_code));
+ if h is null then raise exception 'Kode keluarga tidak ditemukan'; end if;
+ if exists(select 1 from members where household_id=h and role=p_role) then raise exception 'Peran % sudah dipakai di keluarga ini',p_role; end if;
+ insert into members(user_id,household_id,role,name) values(auth.uid(),h,p_role,p_name);
+ return h;
+end $$;
+revoke all on function public.buat_keluarga(text,text),public.gabung_keluarga(text,text,text) from public,anon;
+grant execute on function public.buat_keluarga(text,text),public.gabung_keluarga(text,text,text) to authenticated;
+alter publication supabase_realtime add table public.households;`;
+/* ===================================================================== */
+const $=s=>document.querySelector(s),pad=n=>String(n).padStart(2,'0');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const DAYS=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+const rp=n=>'Rp '+Math.round(n).toLocaleString('id-ID');
+const iso=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+'T'+pad(d.getHours())+':'+pad(d.getMinutes());
+function def(){const n=new Date(),t=new Date(n.getTime()+36e5*3),m=n.toISOString().slice(0,10);return{me:'Suami',
+tasks:[{id:1,t:'Belanja sayur dan lauk',from:'Istri',to:'Suami',due:iso(t),done:false},{id:2,t:'Antar anak les',from:'Suami',to:'Istri',due:iso(new Date(n.getTime()+864e5)),done:false}],
+sched:[{id:1,t:'Olahraga pagi',who:'Suami',day:n.getDay(),time:'05:30'},{id:2,t:'Arisan keluarga',who:'Istri',day:(n.getDay()+2)%7,time:'16:00'}],
+tx:[{id:1,type:'in',amt:8500000,cat:'Gaji',who:'Suami',note:'Gaji bulanan',date:m},{id:2,type:'out',amt:650000,cat:'Makan',who:'Istri',note:'Belanja mingguan',date:m}]}}
+let S;try{S=JSON.parse(localStorage.getItem('rumahkita'))||def()}catch(e){S=def()}
+let sb=null,ME=null,HH=null,CH=null,booting=0,mode='login',pushT;
+const lsave=()=>{if(ME)return;try{localStorage.setItem('rumahkita',JSON.stringify(S))}catch(e){}};
+const save=()=>{S.ts=Date.now();lsave();clearTimeout(pushT);pushT=setTimeout(push,400)};
+const sbOn=()=>!!(SB.url&&SB.key&&window.supabase);
+function st(ok){const e=$('#sync');if(!e)return;e.style.display=ME?'':'none';e.textContent=ok?'Tersinkron':'Offline';e.style.background=ok?'var(--ok)':'var(--bad)'}
+const tr=m=>{m=String(m||'');const k=[['Invalid login','Email atau kata sandi salah.'],['already registered','Email ini sudah terdaftar. Silakan masuk.'],['not confirmed','Email belum dikonfirmasi. Cek kotak masuk email kamu.'],['at least 6','Kata sandi minimal 6 karakter.'],['rate limit','Terlalu banyak percobaan. Coba lagi beberapa menit lagi.'],['Failed to fetch','Tidak ada koneksi internet.']].find(x=>m.includes(x[0]));return k?k[1]:m};
+function amsg(t,ok){const e=$('#amsg');if(e){e.textContent=t;e.className='amsg'+(ok?' ok':'')}}
+async function push(){if(!ME||!HH)return;S.ts=S.ts||Date.now();try{const{error}=await sb.from('households').update({data:{tasks:S.tasks,sched:S.sched,tx:S.tx,ts:S.ts},updated_at:new Date().toISOString()}).eq('id',HH.id);st(!error)}catch(e){st(0)}}
+async function pull(){if(!ME||!HH)return;try{const{data:h,error}=await sb.from('households').select('data').eq('id',HH.id).single();if(error)throw error;st(1);const d=h.data||{};if((d.ts||0)>(S.ts||0)){S={tasks:d.tasks||[],sched:d.sched||[],tx:d.tx||[],ts:d.ts,me:S.me};if(!/INPUT|SELECT/.test(document.activeElement.tagName))render()}}catch(e){st(0)}}
+function subscribe(){if(CH)sb.removeChannel(CH);CH=sb.channel('hh-'+HH.id).on('postgres_changes',{event:'UPDATE',schema:'public',table:'households',filter:'id=eq.'+HH.id},()=>pull()).subscribe()}
+async function joinHH(role,name,code){const r=code?await sb.rpc('gabung_keluarga',{p_code:code,p_role:role,p_name:name}):await sb.rpc('buat_keluarga',{p_role:role,p_name:name});if(r.error)throw r.error;return{household_id:r.data,role,name}}
+async function boot(u){if(booting||(ME&&ME.uid===u.id))return;booting=1;
+try{const{data:m0,error}=await sb.from('members').select('household_id,role,name').eq('user_id',u.id).maybeSingle();if(error)throw error;
+let m=m0,why='';const md=u.user_metadata||{};
+if(!m&&md.role){try{m=await joinHH(md.role,md.name||md.role,md.join||'')}catch(e){why=e.message}}
+if(!m){setupView(why);return}
+const{data:h,error:e2}=await sb.from('households').select('id,code,data').eq('id',m.household_id).single();if(e2)throw e2;
+ME={uid:u.id,role:m.role,name:m.name||m.role};HH={id:h.id,code:h.code};
+const d=h.data||{};S={tasks:d.tasks||[],sched:d.sched||[],tx:d.tx||[],ts:d.ts||0,me:m.role};
+view='home';document.body.classList.remove('authing');render();subscribe();st(1)}
+catch(e){authRender();amsg(tr(e.message))}finally{booting=0}}
+const LOGO='<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/><path d="M12 17.5c0-3 2-4.5 4-4.5 0 3-1.5 4.5-4 4.5Z"/></svg>';
+const ROLEHOW=(w)=>`<select name="role" aria-label="Peran"><option>Suami</option><option>Istri</option></select><select name="how" aria-label="Keluarga"><option value="new">Buat keluarga baru</option><option value="join">Gabung dengan kode</option></select><input class="full" name="code" placeholder="Kode keluarga (isi jika gabung)" autocapitalize="off" autocomplete="off">`;
+function authRender(){document.body.classList.add('authing');const ok=sbOn();
+const lf='<form id="fl"><input class="full" type="email" name="email" placeholder="Email" autocomplete="email" required><input class="full" type="password" name="pw" placeholder="Kata sandi" autocomplete="current-password" required><button class="btn full">Masuk</button></form>';
+const rf=`<form id="fr"><input class="full" name="name" placeholder="Nama panggilan" maxlength="30" required>${ROLEHOW()}<input class="full" type="email" name="email" placeholder="Email" autocomplete="email" required><input class="full" type="password" name="pw" minlength="6" placeholder="Kata sandi (minimal 6 karakter)" autocomplete="new-password" required><button class="btn full">Buat akun</button></form>`;
+$('#auth').innerHTML=`<div class="aw"><div class="alogo">${LOGO}</div><h1>Rumah Kita</h1><p class="asub">Atur tugas, jadwal, dan keuangan keluarga berdua.</p>
+${ok?`<div class="card"><div class="chips"><button data-am="login" class="${mode==='login'?'on':''}">Masuk</button><button data-am="reg" class="${mode==='reg'?'on':''}">Daftar</button></div>${mode==='login'?lf:rf}<p id="amsg" class="amsg" role="alert"></p></div>`
+:`<div class="card t-sky"><h3>Hubungkan ke Supabase dulu</h3><ol><li>Buat proyek gratis di supabase.com.</li><li>Klik tombol di bawah, tempel di menu SQL Editor, lalu Run.</li><li>Salin Project URL dan anon key ke bagian SB di file index.html.</li><li>Di Authentication, atur Site URL ke alamat Vercel-mu (dan matikan Confirm email jika ingin pendaftaran instan).</li></ol><button class="btn" data-act="sql">Salin SQL database</button></div>`}
+<button class="lnk" data-act="local">Coba mode lokal tanpa akun</button></div>`}
+function setupView(why){document.body.classList.add('authing');
+$('#auth').innerHTML=`<div class="aw"><div class="alogo">${LOGO}</div><h1>Satu langkah lagi</h1><p class="asub">Pilih peranmu dan buat atau gabung ke keluarga.</p><div class="card"><form id="fsu"><input class="full" name="name" placeholder="Nama panggilan" maxlength="30" required>${ROLEHOW()}<button class="btn full">Lanjutkan</button></form><p id="amsg" class="amsg" role="alert"></p></div><button class="lnk" data-act="logout">Keluar</button></div>`;if(why)amsg(tr(why))}
+async function authSubmit(i,f){const b=document.querySelector('#auth .btn');b.disabled=true;
+try{if((i==='fr'||i==='fsu')&&f.how==='join'&&!f.code.trim()){amsg('Isi kode keluarga dari pasanganmu.');return}
+if(i==='fl'){const{error}=await sb.auth.signInWithPassword({email:f.email.trim(),password:f.pw});if(error)throw error}
+if(i==='fr'){const{data,error}=await sb.auth.signUp({email:f.email.trim(),password:f.pw,options:{emailRedirectTo:location.href.split('#')[0],data:{name:f.name.trim(),role:f.role,join:f.how==='join'?f.code.trim():''}}});if(error)throw error;if(!data.session)amsg('Akun dibuat. Cek email untuk konfirmasi, lalu masuk.',1)}
+if(i==='fsu'){const{data:{user}}=await sb.auth.getUser();await joinHH(f.role,f.name.trim(),f.how==='join'?f.code.trim():'');await boot(user)}}
+catch(e){amsg(tr(e.message))}finally{b.disabled=false}}
+function act(a){if(a==='sql')navigator.clipboard.writeText(SQL).then(()=>toast('SQL disalin','Tempel di Supabase > SQL Editor lalu klik Run.'),()=>toast('Gagal menyalin','Salin SQL dari bagian atas file index.html.'));
+if(a==='copy'&&HH)navigator.clipboard.writeText(HH.code).then(()=>toast('Kode disalin','Kirim ke pasanganmu untuk daftar dengan kode ini.'),()=>{});
+if(a==='local'){document.body.classList.remove('authing');render()}
+if(a==='logout'&&sb)sb.auth.signOut()}
+const codeCard=()=>ME&&HH?`<div class="card t-sky" style="margin-top:14px"><h3>Hubungkan pasanganmu</h3><div class="row"><div class="main"><span>Pasangan daftar lewat tab Daftar, pilih "Gabung dengan kode"</span><b style="font-size:20px;letter-spacing:2px">${esc(HH.code)}</b></div><button class="btn" data-act="copy">Salin</button></div></div>`:'';
+let view='home',tf='me',sf='all';
+const other=r=>r==='Suami'?'Istri':'Suami';
+const uid=()=>Date.now()+Math.floor(Math.random()*999);
+
+/* waktu sholat – hitungan astronomi, Semarang, sudut Kemenag (Subuh 20°, Isya 18°) */
+function pt(date){const lat=LOK.lat,lng=LOK.lng,tz=LOK.tz,R=Math.PI/180,sin=x=>Math.sin(x*R),cos=x=>Math.cos(x*R);
+const d=Date.UTC(date.getFullYear(),date.getMonth(),date.getDate(),12)/864e5+2440587.5-2451545;
+const g=(357.529+.98560028*d)%360,q=(280.459+.98564736*d)%360,L=q+1.915*sin(g)+.02*sin(2*g),e=23.439-3.6e-7*d;
+let ra=Math.atan2(cos(e)*sin(L),cos(L))/R/15;ra=(ra%24+24)%24;
+const dec=Math.asin(sin(e)*sin(L))/R;let eq=q/15-ra;if(eq>12)eq-=24;if(eq<-12)eq+=24;
+const noon=12+tz-lng/15-eq,T=a=>Math.acos((-sin(a)-sin(lat)*sin(dec))/(cos(lat)*cos(dec)))/R/15;
+const asr=-Math.atan(1/(1+Math.tan(Math.abs(lat-dec)*R)))/R,base=new Date(date.getFullYear(),date.getMonth(),date.getDate()).getTime(),D=h=>new Date(base+Math.round(h*36e5));
+return[['Subuh',D(noon-T(20)-1/60)],['Terbit',D(noon-T(.833))],['Dzuhur',D(noon+2/60)],['Ashar',D(noon+T(asr)+2/60)],['Maghrib',D(noon+T(.833)+2/60)],['Isya',D(noon+T(18)+2/60)]]}
+const hm=d=>pad(d.getHours())+':'+pad(d.getMinutes());
+function nextPrayer(){const n=new Date();let l=pt(n).filter(p=>p[0]!=='Terbit').find(p=>p[1]>n);if(!l){const t=new Date(n.getTime()+864e5);l=pt(t)[0]}return l}
+function left(d){let s=Math.max(0,Math.floor((d-new Date())/1000));return pad(Math.floor(s/3600))+':'+pad(Math.floor(s%3600/60))+':'+pad(s%60)}
+
+/* notifikasi */
+function toast(t,b){const d=document.createElement('div');d.innerHTML='<b>'+esc(t)+'</b><br>'+esc(b);$('#toast').appendChild(d);setTimeout(()=>d.remove(),9000);
+try{if('Notification' in window&&Notification.permission==='granted'){if(navigator.serviceWorker&&navigator.serviceWorker.controller)navigator.serviceWorker.ready.then(r=>r.showNotification(t,{body:b,icon:'icon-192.png',badge:'icon-192.png'}));else new Notification(t,{body:b})}}catch(e){}}
+$('#bell').onclick=()=>{try{Notification.requestPermission().then(p=>toast(p==='granted'?'Notifikasi aktif':'Notifikasi belum aktif',p==='granted'?'Pengingat tugas dan waktu sholat akan muncul di perangkat ini.':'Izinkan notifikasi di pengaturan browser untuk menerima pengingat.'))}catch(e){toast('Notifikasi belum tersedia','Browser ini tidak mendukung notifikasi. Pengingat tetap tampil di dalam aplikasi.')}};
+const fired=new Set();
+const NF=(()=>{try{return JSON.parse(localStorage.getItem('nf'))||[]}catch(e){return[]}})();
+function tick(){if(document.body.classList.contains('authing'))return;const n=new Date();
+S.tasks.forEach(t=>{if(!t.done&&!NF.includes(t.id)&&t.due&&new Date(t.due)<=n){NF.push(t.id);try{localStorage.setItem('nf',JSON.stringify(NF))}catch(e){}if(t.to===S.me)toast('Tugas dari '+t.from,t.t+' sudah waktunya dikerjakan.');}});
+pt(n).forEach(p=>{const k=p[0]+p[1].toDateString();if(p[0]!=='Terbit'&&!fired.has(k)&&n>=p[1]&&n-p[1]<6e4){fired.add(k);toast('Waktu '+p[0]+' telah tiba',hm(p[1])+' · '+LOK.nama)}});
+S.sched.forEach(s=>{if(s.who!==S.me||s.day!==n.getDay())return;const k='s'+s.id+n.toDateString();const[h,m]=s.time.split(':');if(!fired.has(k)&&n.getHours()==h&&n.getMinutes()==m){fired.add(k);toast('Jadwal sekarang',s.t)}});
+const c=$('#cd');if(c){const p=nextPrayer();c.textContent=left(p[1])}}
+setInterval(tick,1000);
+
+/* tampilan */
+const sv=(d,s=22)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+const IC={home:sv('<path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>'),tasks:sv('<rect x="4" y="3" width="16" height="18" rx="3"/><path d="m8.5 12 2.5 2.5 4.5-5"/>'),sched:sv('<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>'),pray:sv('<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/>'),money:sv('<path d="M4 7a2 2 0 0 1 2-2h12v4"/><path d="M4 7v11a2 2 0 0 0 2 2h14V9H6a2 2 0 0 1-2-2Z"/><circle cx="16.5" cy="14.5" r="1"/>'),x:sv('<path d="M6 6l12 12M18 6 6 18"/>',16),check:sv('<path d="m5 12.5 4.5 4.5L19 7.5"/>',16)};
+const NAV=[['home',IC.home,'Beranda'],['tasks',IC.tasks,'Tugas'],['sched',IC.sched,'Jadwal'],['pray',IC.pray,'Sholat'],['money',IC.money,'Keuangan']];
+function shell(){$('#nav').innerHTML=NAV.map(n=>`<button class="${view===n[0]?'on':''}" data-v="${n[0]}"><span>${n[1]}</span>${n[2]}</button>`).join('');
+$('#out').style.display=ME?'':'none';$('#who').innerHTML=ME?`<span class="tag ${ME.role}" style="padding:9px 14px;font-size:13px">${esc(ME.name)} · ${ME.role}</span>`:['Suami','Istri'].map(r=>`<button class="${S.me===r?'on':''}" data-r="${r}">${r}</button>`).join('')}
+const taskRow=t=>`<div class="row ${t.done?'done':''}"><button class="chk" data-done="${t.id}" aria-label="Tandai selesai">${t.done?IC.check:''}</button><div class="main"><b>${esc(t.t)}</b><span>Dari ${t.from} untuk ${t.to}${t.due?' · '+new Date(t.due).toLocaleString('id-ID',{weekday:'short',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}):''}</span></div><span class="tag ${t.to}">${t.to}</span><button class="x" data-deltask="${t.id}" aria-label="Hapus">✕</button></div>`;
+function mon(){const m=new Date().toISOString().slice(0,7),l=S.tx.filter(x=>x.date.slice(0,7)===m),i=l.filter(x=>x.type==='in').reduce((a,b)=>a+b.amt,0),o=l.filter(x=>x.type==='out').reduce((a,b)=>a+b.amt,0);return{i,o,s:i-o}}
+function render(){shell();const A=$('#app'),n=new Date();let h='';
+if(view==='home'){const p=nextPrayer(),mine=S.tasks.filter(t=>t.to===S.me&&!t.done),td=S.sched.filter(s=>s.day===n.getDay()&&s.who===S.me),f=mon();
+h=`<h2>Halo, ${ME?esc(ME.name):S.me}</h2><div class="card hero"><small>Sholat berikutnya</small><div class="big">${p[0]} ${hm(p[1])}</div><small>Tinggal <b id="cd">${left(p[1])}</b> lagi · ${LOK.nama}</small></div>
+<div class="grid"><div class="stat"><b>${mine.length}</b><span>Tugas untukmu</span></div><div class="stat"><b>${td.length}</b><span>Jadwal hari ini</span></div><div class="stat"><b style="font-size:16px;line-height:30px">${rp(f.s)}</b><span>Saldo bulan ini</span></div></div>
+${codeCard()}<div class="card t-peach" style="margin-top:14px"><h3>Tugas yang perlu kamu kerjakan</h3>${mine.slice(0,4).map(taskRow).join('')||'<div class="empty">Tidak ada tugas. Santai dulu, atau beri tugas ke pasanganmu.</div>'}</div>
+<div class="card t-mint"><h3>Jadwalmu hari ini (${DAYS[n.getDay()]})</h3>${td.sort((a,b)=>a.time.localeCompare(b.time)).map(s=>`<div class="row"><b style="color:var(--p)">${s.time}</b><div class="main"><b>${esc(s.t)}</b></div></div>`).join('')||'<div class="empty">Belum ada jadwal hari ini.</div>'}</div>`}
+if(view==='tasks'){const l=S.tasks.filter(t=>tf==='all'||(tf==='me'?t.to===S.me:t.from===S.me)).sort((a,b)=>a.done-b.done||(a.due||'').localeCompare(b.due||''));
+h=`<h2>Tugas bersama</h2><div class="card t-lav"><h3>Beri tugas baru</h3><form id="ft"><input class="full" name="t" placeholder="Contoh: Jemput anak sekolah" required><select name="to"><option>${other(S.me)}</option><option>${S.me}</option></select><input type="datetime-local" name="due"><button class="btn full">Kirim tugas</button></form></div>
+<div class="chips">${[['me','Untukku'],['by','Dariku'],['all','Semua']].map(c=>`<button data-tf="${c[0]}" class="${tf===c[0]?'on':''}">${c[1]}</button>`).join('')}</div>
+<div class="card">${l.map(taskRow).join('')||'<div class="empty">Belum ada tugas di sini.</div>'}</div>`}
+if(view==='sched'){const l=S.sched.filter(s=>sf==='all'||s.who===sf);
+h=`<h2>Jadwal kegiatan</h2><div class="card t-sky"><h3>Tambah jadwal</h3><form id="fs"><input class="full" name="t" placeholder="Contoh: Rapat kantor" required><select name="who"><option>${S.me}</option><option>${other(S.me)}</option></select><select name="day">${DAYS.map((d,i)=>`<option value="${i}" ${i===n.getDay()?'selected':''}>${d}</option>`).join('')}</select><input type="time" name="time" required value="08:00"><button class="btn full">Simpan jadwal</button></form></div>
+<div class="chips">${[['all','Semua'],['Suami','Suami'],['Istri','Istri']].map(c=>`<button data-sf="${c[0]}" class="${sf===c[0]?'on':''}">${c[1]}</button>`).join('')}</div>
+${[0,1,2,3,4,5,6].map(i=>(i+n.getDay())%7).map(d=>{const x=l.filter(s=>s.day===d).sort((a,b)=>a.time.localeCompare(b.time));return x.length?`<div class="card ${['t-rose','t-lav','t-mint','t-peach','t-sky','t-rose','t-lav'][d]}"><h3>${DAYS[d]}${d===n.getDay()?' · hari ini':''}</h3>${x.map(s=>`<div class="row"><b style="color:var(--p);width:52px">${s.time}</b><div class="main"><b>${esc(s.t)}</b></div><span class="tag ${s.who}">${s.who}</span><button class="x" data-delsch="${s.id}" aria-label="Hapus">✕</button></div>`).join('')}</div>`:''}).join('')||'<div class="card empty">Belum ada jadwal. Tambahkan jadwal pertama di atas.</div>'}`}
+if(view==='pray'){const p=nextPrayer();
+h=`<h2>Waktu sholat</h2><div class="card t-lav"><small style="color:var(--muted)">${n.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'})} · ${LOK.nama}, metode Kemenag RI</small></div>${pt(n).map(x=>`<div class="pr ${x[0]===p[0]?'next':''}"><span>${x[0]}${x[0]==='Terbit'?' (batas Subuh)':''}</span><b>${hm(x[1])}</b></div>`).join('')}<p style="color:var(--muted);font-size:13px">Waktu dihitung langsung di perangkat, tanpa internet. Selisih 1 sampai 2 menit dari jadwal resmi masjid setempat bisa terjadi.</p>`}
+if(view==='money'){const f=mon(),pc=f.i?Math.max(0,Math.min(100,(f.s/f.i)*100)):0,l=[...S.tx].sort((a,b)=>b.date.localeCompare(a.date)||b.id-a.id);
+h=`<h2>Keuangan keluarga</h2><div class="grid"><div class="stat"><b class="in" style="font-size:15px">${rp(f.i)}</b><span>Pemasukan</span></div><div class="stat"><b class="out" style="font-size:15px">${rp(f.o)}</b><span>Pengeluaran</span></div><div class="stat"><b style="font-size:15px">${rp(f.s)}</b><span>Sisa bulan ini</span></div></div>
+<div class="card t-mint" style="margin-top:14px"><h3>Sisa dari pemasukan: ${Math.round(pc)}%</h3><div class="bar"><i style="width:${pc}%"></i></div></div>
+<div class="card t-rose"><h3>Catat transaksi</h3><form id="fm"><select name="type"><option value="out">Pengeluaran</option><option value="in">Pemasukan</option></select><input name="amt" type="number" min="1" inputmode="numeric" placeholder="Jumlah (Rp)" required><input name="cat" placeholder="Kategori (Makan, Gaji…)" required><input name="note" placeholder="Catatan"><input type="date" name="date" value="${new Date().toISOString().slice(0,10)}"><button class="btn">Simpan</button></form></div>
+<div class="card"><h3>Riwayat</h3>${l.map(x=>`<div class="row"><div class="main"><b>${esc(x.cat)}${x.note?' · '+esc(x.note):''}</b><span>${x.date} · dicatat ${x.who}</span></div><span class="${x.type}">${x.type==='in'?'+':'−'} ${rp(x.amt)}</span><button class="x" data-deltx="${x.id}" aria-label="Hapus">✕</button></div>`).join('')||'<div class="empty">Belum ada transaksi.</div>'}</div>`}
+A.innerHTML=h;A.querySelectorAll('.x').forEach(b=>b.innerHTML=IC.x)}
+
+document.addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;const d=t.dataset;
+if(d.am){mode=d.am;return authRender()}if(d.act){return act(d.act)}
+if(d.v){view=d.v}else if(d.r){S.me=d.r;lsave()}else if(d.tf){tf=d.tf}else if(d.sf){sf=d.sf}
+else if(d.done){const k=S.tasks.find(x=>x.id==d.done);k.done=!k.done;save()}
+else if(d.deltask){S.tasks=S.tasks.filter(x=>x.id!=d.deltask);save()}
+else if(d.delsch){S.sched=S.sched.filter(x=>x.id!=d.delsch);save()}
+else if(d.deltx){S.tx=S.tx.filter(x=>x.id!=d.deltx);save()}
+else return;render()});
+document.addEventListener('submit',e=>{e.preventDefault();const f=Object.fromEntries(new FormData(e.target)),i=e.target.id;
+if(['fl','fr','fsu'].includes(i)){authSubmit(i,f);return}
+if(i==='ft')S.tasks.push({id:uid(),t:f.t,from:S.me,to:f.to,due:f.due,done:false});
+if(i==='fs')S.sched.push({id:uid(),t:f.t,who:f.who,day:+f.day,time:f.time});
+if(i==='fm')S.tx.push({id:uid(),type:f.type,amt:+f.amt,cat:f.cat,who:S.me,note:f.note,date:f.date});
+save();render();if(i==='ft')toast('Tugas terkirim','Tugas untuk '+f.to+' sudah dicatat.')});
+/* PWA: manifest.json, ikon, dan sw.js (offline + notifikasi di HP) */
+if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
+if(sbOn()){sb=supabase.createClient(SB.url,SB.key);
+sb.auth.onAuthStateChange((ev,ss)=>{if(ev==='SIGNED_OUT'){ME=HH=null;if(CH){sb.removeChannel(CH);CH=null}S={tasks:[],sched:[],tx:[],me:'Suami'};mode='login';authRender()}else if(ev==='SIGNED_IN'&&ss)setTimeout(()=>boot(ss.user),0)});
+sb.auth.getSession().then(({data})=>data.session?boot(data.session.user):authRender())}else authRender();
+tick();setInterval(pull,15000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)pull()});
+</script>
+</body>
+</html>

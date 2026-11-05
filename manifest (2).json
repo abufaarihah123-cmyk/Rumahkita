@@ -1,0 +1,32 @@
+{
+  "name": "Rumah Kita – Jadwal Rumah Tangga",
+  "short_name": "Rumah Kita",
+  "description": "Tugas, jadwal, waktu sholat, dan keuangan keluarga.",
+  "lang": "id",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f2f9f5",
+  "theme_color": "#1f8a70",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
